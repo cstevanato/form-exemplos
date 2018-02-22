@@ -1,0 +1,55 @@
+<form [formGroup]="formulario">
+   <div>https://www.npmjs.com/package/ngx-mask</div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+      formControlName="email" >
+    <small id="emailHelp" class="form-text text-muted">Digite email</small>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input type="password" class="form-control" id="password" placeholder="Password"
+      formControlName="senha">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+        <label for="cep">CEP</label>
+        <input type="text" class="form-control" id="cep" placeholder="CEP"
+          formControlName="cep" mask='99999-999'>
+    </div>
+    <div class="form-group col-md-3">
+            <label for="inputState">Planeta</label>
+            <select id="inputState" class="form-control" formControlName="planeta">
+              <!-- <option selected>Choose...</option>
+              <option>...</option> -->
+              <option value= {{planeta.id}} *ngFor="let planeta of planetas" > {{ planeta.nome }} </option>
+            </select>
+
+            <!-- <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="nameId" name="Id"
+              (change)="selectName();">
+                <option selected="" value=""></option>
+             <option [ngValue]="k.Id" *ngFor="let k of nameList">
+                 {{k.Name}}
+          </option>
+     </select>   -->
+    </div>
+  </div>
+  <div>https://www.npmjs.com/package/ng2-currency-mask</div>
+
+  <div class="form-row">
+      <div class="form-group col-md-3">
+          <div class="form-group">
+            <label for="moeda">Moeda</label>
+            <input type="text" class="form-control" id="moeda" placeholder="Moeda"
+              formControlName="moeda"
+              currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+          </div>
+      </div>
+    </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <app-form-debug [form]="formulario"></app-form-debug>
+</form>
